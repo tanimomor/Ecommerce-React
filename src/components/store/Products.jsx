@@ -1,7 +1,9 @@
 import products from "./products.json";
 import PageNav from "./PageNav.jsx";
 import { CartContext } from "../../context/CartContext.jsx";
-import {useContext, useEffect, useState} from "react";
+import { AuthContext } from "../../context/AuthContext.jsx"; // Import AuthContext
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Products() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -9,6 +11,11 @@ export default function Products() {
 
     // Access cart context
     const { cart, addToCart } = useContext(CartContext);
+
+    // Access authentication context
+    const { authState } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log('cart', cart);
@@ -21,6 +28,15 @@ export default function Products() {
 
     // Function to handle page change
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Function to handle add to cart
+    const handleAddToCart = (product) => {
+        if (authState.isAuthenticated) {
+            addToCart(product);
+        } else {
+            navigate('/login'); // Redirect to login page if not authenticated
+        }
+    };
 
     return (
         <>
@@ -75,7 +91,7 @@ export default function Products() {
 
                                 <button
                                     className="font-semibold h-[42px] w-full leading-[normal] text-[16px] text-white rounded-[5px] bg-[#202020] mt-8 flex items-center justify-center gap-x-2"
-                                    onClick={() => addToCart(product)}
+                                    onClick={() => handleAddToCart(product)} // Use the new handler
                                 >
                                     <img src="/assets/logo/products/Basket.png" alt="Basket Icon" className="mr-1" />
                                     <span>Add to Cart</span>

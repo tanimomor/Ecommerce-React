@@ -14,7 +14,7 @@ export default function PageNames() {
                             ? "rounded-md bg-neutral-50 px-5 py-2 text-center font-semibold"
                             : "font-medium cursor-pointer"
                     } cursor-pointer`} // cursor-pointer class ensures the cursor changes to a pointer
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/products")}
                 >
                     Products
                 </div>
