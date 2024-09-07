@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from "../../context/CartContext.jsx";
-import { SingleItem } from "./SingleItem.jsx";
+import { SingleCartItem } from "./SingleCartItem.jsx";
 
 export default function CartItems() {
     const { cart, removeFromCart } = useContext(CartContext);
@@ -23,10 +23,10 @@ export default function CartItems() {
                             <div className="flex flex-col items-start gap-y-6 [max-width:692px]">
                                 <object data="/assets/Line.svg" className="h-px flex-shrink-0 self-stretch"></object>
                                 {cart.length === 0 ? (
-                                    <SingleItem name="No Product Added" price="0" quantity="0" />
+                                    <SingleCartItem name="No Product Added" />
                                 ) : (
                                     cart.map((product) => (
-                                        <SingleItem
+                                        <SingleCartItem
                                             key={product.id}
                                             id={product.id}
                                             name={product.name}

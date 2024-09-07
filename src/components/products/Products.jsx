@@ -1,4 +1,4 @@
-import products from "./products.json";
+import products from "../../data/products.json";
 import PageNav from "./PageNav.jsx";
 import { CartContext } from "../../context/CartContext.jsx";
 import { AuthContext } from "../../context/AuthContext.jsx"; // Import AuthContext

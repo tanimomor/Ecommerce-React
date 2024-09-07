@@ -1,8 +1,8 @@
-import Navbar from "../components/store/Navbar.jsx";
-import SideFilter from "../components/store/SideFilter.jsx";
-import Products from "../components/store/Products.jsx";
-import PageNav from "../components/store/PageNav.jsx";
-import Footer from "../components/store/Footer.jsx";
+import Navbar from "../components/products/Navbar.jsx";
+import SideFilter from "../components/products/SideFilter.jsx";
+import Products from "../components/products/Products.jsx";
+import PageNav from "../components/products/PageNav.jsx";
+import Footer from "../components/products/Footer.jsx";
 import CartItems from "../components/cart/CartItems.jsx";
 
 export default function Cart() {

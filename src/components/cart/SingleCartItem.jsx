@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.jsx";
 
-export function SingleItem({ id, name, price, image, quantity }) {
+export function SingleCartItem({ id, name, price, image, quantity }) {
     const { increaseQuantity, decreaseQuantity } = useContext(CartContext);
 
     return (
@@ -30,11 +30,11 @@ export function SingleItem({ id, name, price, image, quantity }) {
                             <div
                                 className="flex h-full w-full flex-shrink-0 flex-col items-center overflow-clip rounded-lg border border-solid border-x-[gainsboro] border-y-[gainsboro] bg-neutral-200">
                                 <div className="flex h-[88px] w-[88px] flex-shrink-0 items-center">
-                                    <img
+                                    {image && <img
                                         src={image}
                                         alt={name}
                                         className="h-[87px] w-[88px] object-cover rounded-lg"
-                                    />
+                                    />}
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ export function SingleItem({ id, name, price, image, quantity }) {
                     className="h-6 w-6 flex-shrink-0"
                 ></object>
                 <div className="text-right text-xl font-semibold leading-[normal] text-neutral-950">
-                    €{price}
+                    {price && `€${price}`}
                 </div>
             </div>
         </div>
